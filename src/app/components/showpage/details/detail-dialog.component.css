@@ -1,0 +1,14 @@
+mat-dialog-content {
+    width: 500px;
+  }
+  
+  p, h2 {
+    color: black;
+  }
+  
+  .dates {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  

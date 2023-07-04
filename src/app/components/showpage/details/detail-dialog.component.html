@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content>
+  <p>{{ data.text }}</p>
+  <div class="dates">
+    <div>
+      <h2>Создано</h2>
+      <p class="created">{{ data.created.toLocaleString("ru", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric"
+      }) }}</p>
+    </div>
+    <div>
+      <h2>Срок сдачи</h2>
+      <p class="deadline">{{ data.deadline.toLocaleString("ru", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric"
+      }) }}</p>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>OK</button>
+</mat-dialog-actions>

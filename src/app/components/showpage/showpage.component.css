@@ -1,0 +1,40 @@
+.showpage {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    
+  }
+  
+  mat-table {
+    margin-top: 20px;
+  }
+  .mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+    margin: auto;
+  }
+  
+  .mat-mdc-row:hover .mat-mdc-cell {
+    border-color: currentColor;
+  }
+  
+  .demo-row-is-clicked {
+    font-weight: bold;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .showpage {
+      width: 100%;
+    }
+  }
+
+  .showpage h2 {
+    text-align: center; 
+  }
+
+  .content-text {
+    font-size: 17px;
+  }
+  

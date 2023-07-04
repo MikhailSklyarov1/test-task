@@ -1,0 +1,27 @@
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+  .header {
+    cursor: pointer;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  button {
+    margin: 0 5px;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .nav-bar {
+      justify-content: space-between;
+    }
+  }
+  
+  .navigation-btn{
+    min-width: 170px;
+  }

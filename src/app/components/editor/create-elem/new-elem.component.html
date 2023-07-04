@@ -1,0 +1,86 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <h2 mat-dialog-title>Добавить новую задачу</h2>
+    <mat-dialog-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Название</mat-label>
+        <input
+          matInput
+          type="text"
+          [formControl]="title"
+          placeholder="Заголовок"
+        />
+        <mat-error *ngIf="title.errors?.required"
+          >Нужно ввести данные</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Описание</mat-label>
+        <textarea
+          matInput
+          type="text"
+          [formControl]="description"
+          placeholder="Описание"
+          [rows]="5"
+          [cols]="50"
+          minlength="10"
+          maxlength="250"
+        ></textarea>
+        <mat-error
+          *ngIf="
+            (description.errors?.minlength || description.errors?.maxlength) &&
+            description.touched
+          "
+          >Минимальное количество символов - 10, максимальное - 250
+        </mat-error>
+        <mat-error *ngIf="description.errors?.required && description.touched"
+          >Нужно ввести данные
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Дата выполнения</mat-label>
+        <input
+          matInput
+          [formControl]="date"
+          [matDatepicker]="picker"
+  
+          [min]="this.taskService.currentData"
+          placeholder="Выбрать дату"
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="date.errors?.required"
+          >Нужно ввести данные</mat-error
+        >
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Время выполнения</mat-label>
+        <input
+          matInput
+          type="time"
+          [formControl]="time"
+          placeholder="Выбрать время"
+        />
+        <mat-error *ngIf="time.errors?.required"
+          >Нужно ввести данные</mat-error
+        >
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Отмена</button>
+      <button
+        mat-button
+        type="submit"
+        [disabled]="!form.valid"
+        [mat-dialog-close]="form"
+        cdkFocusInitial
+      >
+        Добавить
+      </button>
+    </mat-dialog-actions>
+  </form>
+  

@@ -1,0 +1,84 @@
+<div class="showpage">
+    <h2>Просмотр</h2>
+    <mat-table
+      mat-table
+      class="mat-table"
+      on-mouseleave="hoveredIndex = null"
+      [dataSource]="dataSource"
+
+    >
+      <ng-container matColumnDef="title" >
+        <mat-header-cell class='content-text'
+          *matHeaderCellDef
+        >
+          Название
+        </mat-header-cell>
+        <mat-cell *matCellDef="let item" (click)="openDialog(item)" class='content-text'>
+          {{ item.title }}
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="created">
+        <mat-header-cell class='content-text'
+          *matHeaderCellDef
+        >
+          Дата создания
+        </mat-header-cell>
+        <mat-cell *matCellDef="let item" (click)="openDialog(item)" class='content-text'>
+          {{
+            item.created.toLocaleString("ru", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "numeric"
+            })
+          }}
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="deadline">
+        <mat-header-cell class='content-text'
+          *matHeaderCellDef
+        >
+          Дата выполнения
+        </mat-header-cell>
+        <mat-cell *matCellDef="let item" (click)="openDialog(item)" class='content-text'>
+          {{
+            item.deadline.toLocaleString("ru", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "numeric"
+            })
+          }}
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="controls">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let item; let visible; let i = index">
+          <div class="icon-container">
+            <div class="icon-button">
+                <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="moveUp(i)"><mat-icon>arrow_upward</mat-icon></button>
+                <button mat-menu-item (click)="moveDown(i)"><mat-icon>arrow_downward</mat-icon></button>
+                </mat-menu>
+            </div>
+        </div>
+
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row
+        *matRowDef="let row; let visible; columns: displayedColumns"
+        on-mouseover="hoveredIndex = visible"
+      ></mat-row>
+    </mat-table>
+  
+
+  </div>
+  
