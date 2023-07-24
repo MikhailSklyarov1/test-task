@@ -4,7 +4,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TaskService } from '../../services/task.service';
 import { ITask } from '../../models/task';
 import { MatSelectionList } from '@angular/material/list';
-import {MatPaginator} from '@angular/material/paginator';
+import {NewElemComponent} from "./create-elem/new-elem.component";
+
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
@@ -15,12 +16,6 @@ export class EditorComponent {
   srcData = this.taskService.dataSource.data;
   dataSource = this.taskService.dataSource
 
-  @ViewChild('editor') seList: MatSelectionList;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
 
   openNewElem() {
     const dialogRef = this.dialog.open(NewElemComponent);
@@ -32,38 +27,32 @@ export class EditorComponent {
 
 
   dublicateSelected(elem:ITask) {
-    
-    let newArr = this.srcData.push();
 
+    let newArr = this.srcData.push();
+    this.srcData = this.taskService.dataSource.data;
+
+    this.taskService.create({
+      id: Math.random(),
+      title: elem.title,
+      text: elem.text,
+      created: elem.created,
+      deadline: elem.deadline,
+    })
 
     this.srcData = this.taskService.dataSource.data;
 
-    
-      this.taskService.create({
-        id: Math.random(),
-        title: elem.title,
-        text: elem.text,
-        created: elem.created,
-        deadline: elem.deadline,
-      })
-
-      this.srcData = this.taskService.dataSource.data;
-    
   }
 
-
-
-  deleteSelected(i:number) {
-    
-    let newArr = this.srcData.filter((_, index) => index !== i);
+  deleteSelected(delElem:ITask):void {
+    let newArr:ITask[] = this.srcData.filter(function (el:ITask):boolean {
+      return el.id !== delElem.id;
+    });
 
     this.taskService.dataSource.data = newArr;
     this.srcData = this.taskService.dataSource.data;
   }
-
-
 }
-
+/*
 @Component({
   selector: 'new-elem',
   templateUrl: './create-elem/new-elem.component.html',
@@ -78,6 +67,7 @@ export class NewElemComponent {
       Validators.minLength(5),
       Validators.maxLength(200),
       Validators.required,
+      Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/),
     ]),
     date: new FormControl('', Validators.required),
     time: new FormControl('', Validators.required),
@@ -123,4 +113,4 @@ export class NewElemComponent {
       deadline: deadlineTime,
     });
   }
-}
+}*/

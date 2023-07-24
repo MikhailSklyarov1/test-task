@@ -32,44 +32,83 @@
           "
           >Минимальное количество символов - 10, максимальное - 250
         </mat-error>
+
         <mat-error *ngIf="description.errors?.required && description.touched"
           >Нужно ввести данные
         </mat-error>
+
+        <mat-error *ngIf="!(description.errors?.minlength || description.errors?.maxlength) && description.errors?.pattern && description.touched"
+        >Описание не может состоять из пробелов
+        </mat-error>
       </mat-form-field>
-  
+
       <mat-form-field appearance="outline">
-        <mat-label>Дата выполнения</mat-label>
+        <mat-label>Дата создания</mat-label>
         <input
           matInput
-          [formControl]="date"
-          [matDatepicker]="picker"
-  
+          [formControl]="dateCreation"
+          [matDatepicker]="picker1"
+
           [min]="this.taskService.currentData"
           placeholder="Выбрать дату"
         />
         <mat-datepicker-toggle
           matIconSuffix
-          [for]="picker"
+          [for]="picker1"
         ></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="date.errors?.required"
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="dateCreation.errors?.required"
+        >Нужно ввести данные</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Время создания</mat-label>
+        <input
+          matInput
+          type="time"
+          [formControl]="timeCreation"
+          placeholder="Выбрать время"
+        />
+        <mat-error *ngIf="timeCreation.errors?.required"
+        >Нужно ввести данные</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Дата выполнения</mat-label>
+        <input
+          matInput
+          [formControl]="dateCompletion"
+          [matDatepicker]="picker2"
+
+          [min]="this.taskService.currentData"
+          placeholder="Выбрать дату"
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error *ngIf="dateCompletion.errors?.required"
           >Нужно ввести данные</mat-error
         >
       </mat-form-field>
-  
+
       <mat-form-field appearance="outline">
         <mat-label>Время выполнения</mat-label>
         <input
           matInput
           type="time"
-          [formControl]="time"
+          [formControl]="timeCompletion"
           placeholder="Выбрать время"
         />
-        <mat-error *ngIf="time.errors?.required"
+        <mat-error *ngIf="timeCompletion.errors?.required"
           >Нужно ввести данные</mat-error
         >
       </mat-form-field>
     </mat-dialog-content>
+
     <mat-dialog-actions align="end">
       <button mat-button mat-dialog-close>Отмена</button>
       <button
@@ -83,4 +122,3 @@
       </button>
     </mat-dialog-actions>
   </form>
-  

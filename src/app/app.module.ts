@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './components/header/navigation.component';
-import { EditorComponent, NewElemComponent } from './components/editor/editor.component';
+import { EditorComponent } from './components/editor/editor.component';
 import { ShowpageComponent, DetailDialog } from './components/showpage/showpage.component';
 // material
 import { MatDialogModule } from '@angular/material/dialog';
@@ -19,10 +19,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
+import {NewElemComponent} from "./components/editor/create-elem/new-elem.component";
 
 
 @NgModule({
@@ -52,10 +52,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatPaginatorModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

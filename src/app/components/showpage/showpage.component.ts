@@ -6,7 +6,6 @@ import { Inject } from '@angular/core';
 import { MatSort, Sort } from '@angular/material/sort';
 import { TaskService } from '../../services/task.service';
 import { ITask } from '../../models/task';
-import { MatPaginator } from '@angular/material/paginator';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
@@ -18,7 +17,7 @@ import {
   templateUrl: './showpage.component.html',
   styleUrls: ['./showpage.component.css'],
 })
-export class ShowpageComponent implements AfterViewInit, OnInit {
+export class ShowpageComponent implements OnInit {
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     private _snackBar: MatSnackBar,
@@ -44,8 +43,6 @@ export class ShowpageComponent implements AfterViewInit, OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   openDialog(item: ITask) {
     this.dialog.open(DetailDialog, {
@@ -103,11 +100,6 @@ export class ShowpageComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.displaySnackbar();
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
   }
 
   announceSortChange(sortState: Sort) {

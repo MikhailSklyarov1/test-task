@@ -8,18 +8,17 @@
     >
       Создать задачу
     </button>
-  
+
     <ul>
         <li *ngFor="let elem of srcData; let i = index" [value]="elem">
           <div class="item-container">
             <div class="title">{{ elem.title }}</div>
             <div class="button-container">
-              <button class="change-button" mat-flat-button color="warn" (click)="deleteSelected(i)">Удалить</button>
+              <button class="change-button" mat-flat-button color="warn" (click)="deleteSelected(elem)">Удалить</button>
               <button class="change-button" mat-flat-button color="primary" (click)="dublicateSelected(elem)">Копировать</button>
             </div>
           </div>
         </li>
       </ul>
-    
+
   </div>
-  
