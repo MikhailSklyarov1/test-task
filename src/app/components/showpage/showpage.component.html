@@ -1,5 +1,5 @@
 <div class="showpage">
-    <h2>Просмотр</h2>
+    <h2>{{'Просмотр' | transloco}}</h2>
     <mat-table
       mat-table
       class="mat-table"
@@ -17,7 +17,7 @@
           {{ item.title }}
         </mat-cell>
       </ng-container>
-  
+
       <ng-container matColumnDef="created">
         <mat-header-cell class='content-text'
           *matHeaderCellDef
@@ -28,7 +28,7 @@
           {{
             item.created.toLocaleString("ru", {
               year: "numeric",
-              month: "long",
+              month: "numeric",
               day: "numeric",
               hour: "numeric",
               minute: "numeric"
@@ -36,7 +36,7 @@
           }}
         </mat-cell>
       </ng-container>
-  
+
       <ng-container matColumnDef="deadline">
         <mat-header-cell class='content-text'
           *matHeaderCellDef
@@ -47,7 +47,7 @@
           {{
             item.deadline.toLocaleString("ru", {
               year: "numeric",
-              month: "long",
+              month: "numeric",
               day: "numeric",
               hour: "numeric",
               minute: "numeric"
@@ -55,7 +55,7 @@
           }}
         </mat-cell>
       </ng-container>
-  
+
       <ng-container matColumnDef="controls">
         <mat-header-cell *matHeaderCellDef> </mat-header-cell>
         <mat-cell *matCellDef="let item; let visible; let i = index">
@@ -71,14 +71,13 @@
 
         </mat-cell>
       </ng-container>
-  
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row
         *matRowDef="let row; let visible; columns: displayedColumns"
         on-mouseover="hoveredIndex = visible"
       ></mat-row>
     </mat-table>
-  
+
 
   </div>
-  

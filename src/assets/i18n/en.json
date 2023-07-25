@@ -1,0 +1,23 @@
+{
+  "Редактор": "Editor",
+  "Создать задачу": "Create task",
+  "Просмотр": "Show",
+  "Удалить": "Delete",
+  "Копировать": "Copy",
+  "Просмотр": "Show",
+  "Редактирование": "Edit",
+  "Добавить новую задачу": "Add a new task",
+  "Название": "Title",
+  "Описание": "Description",
+  "Дата создания": "Creation Date",
+  "Время создания": "Creation Time",
+  "Дата выполнения": "Complete Date",
+  "Время выполнения": "Complete Time",
+  "Отмена": "Cancel",
+  "Добавить": "Add",
+  "Нужно ввести данные": "You need to enter the data",
+  "Минимальное количество символов - 10, максимальное - 250": "The minimum number of characters is 10, the maximum is 250",
+  "Описание не может состоять из пробелов": "The description cannot consist of spaces",
+  "Создано": "Created",
+  "Срок сдачи": "Deadline"
+}

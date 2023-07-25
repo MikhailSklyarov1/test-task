@@ -1,12 +1,12 @@
 <div class="editor">
-    <h2>Редактор</h2>
+    <h2>{{'Редактор' | transloco}}</h2>
     <button
       class="new-task-btn"
       mat-raised-button
       color="primary"
       (click)="openNewElem()"
     >
-      Создать задачу
+      {{'Создать задачу' | transloco}}
     </button>
 
     <ul>
@@ -14,8 +14,8 @@
           <div class="item-container">
             <div class="title">{{ elem.title }}</div>
             <div class="button-container">
-              <button class="change-button" mat-flat-button color="warn" (click)="deleteSelected(elem)">Удалить</button>
-              <button class="change-button" mat-flat-button color="primary" (click)="dublicateSelected(elem)">Копировать</button>
+              <button class="change-button" mat-flat-button color="warn" (click)="deleteSelected(elem)">{{"Удалить" | transloco}}</button>
+              <button class="change-button" mat-flat-button color="primary" (click)="dublicateSelected(elem)">{{"Копировать" | transloco}}</button>
             </div>
           </div>
         </li>

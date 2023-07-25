@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" class="nav-bar">
-    
+
     <div class="controls">
       <button
         class="showpage-btn navigation-btn"
@@ -8,7 +8,7 @@
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
       >
-        Просмотр
+        {{"Просмотр" | transloco}}
       </button>
       <button
         class="editor-btn navigation-btn"
@@ -17,9 +17,12 @@
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
       >
-        Редактирование
+        {{"Редактирование" | transloco}}
       </button>
-      
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button (click)="setLang('en')" checked=true value="en">EN</mat-radio-button>
+        <mat-radio-button (click)="setLang('ru')" value="ru">RU</mat-radio-button>
+      </mat-radio-group>
+
       </div>
   </mat-toolbar>
-  

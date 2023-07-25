@@ -1,8 +1,8 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
-    <h2 mat-dialog-title>Добавить новую задачу</h2>
+    <h2 mat-dialog-title>{{'Добавить новую задачу' | transloco}}</h2>
     <mat-dialog-content>
       <mat-form-field appearance="fill">
-        <mat-label>Название</mat-label>
+        <mat-label>{{'Название' | transloco}}</mat-label>
         <input
           matInput
           type="text"
@@ -10,11 +10,11 @@
           placeholder="Заголовок"
         />
         <mat-error *ngIf="title.errors?.required"
-          >Нужно ввести данные</mat-error
+          >{{'Нужно ввести данные' | transloco}}</mat-error
         >
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Описание</mat-label>
+        <mat-label>{{'Описание' | transloco}}</mat-label>
         <textarea
           matInput
           type="text"
@@ -30,20 +30,20 @@
             (description.errors?.minlength || description.errors?.maxlength) &&
             description.touched
           "
-          >Минимальное количество символов - 10, максимальное - 250
+          >{{'Минимальное количество символов - 10, максимальное - 250' | transloco}}
         </mat-error>
 
         <mat-error *ngIf="description.errors?.required && description.touched"
-          >Нужно ввести данные
+          >{{'Нужно ввести данные' | transloco}}
         </mat-error>
 
         <mat-error *ngIf="!(description.errors?.minlength || description.errors?.maxlength) && description.errors?.pattern && description.touched"
-        >Описание не может состоять из пробелов
+        >{{'Описание не может состоять из пробелов' | transloco}}
         </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Дата создания</mat-label>
+        <mat-label>{{'Дата создания' | transloco}}</mat-label>
         <input
           matInput
           [formControl]="dateCreation"
@@ -58,12 +58,12 @@
         ></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
         <mat-error *ngIf="dateCreation.errors?.required"
-        >Нужно ввести данные</mat-error
+        >{{'Нужно ввести данные' | transloco}}</mat-error
         >
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Время создания</mat-label>
+        <mat-label>{{'Время создания' | transloco}}</mat-label>
         <input
           matInput
           type="time"
@@ -71,12 +71,12 @@
           placeholder="Выбрать время"
         />
         <mat-error *ngIf="timeCreation.errors?.required"
-        >Нужно ввести данные</mat-error
+        >{{'Нужно ввести данные' | transloco}}</mat-error
         >
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Дата выполнения</mat-label>
+        <mat-label>{{'Дата выполнения' | transloco}}</mat-label>
         <input
           matInput
           [formControl]="dateCompletion"
@@ -91,12 +91,12 @@
         ></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
         <mat-error *ngIf="dateCompletion.errors?.required"
-          >Нужно ввести данные</mat-error
+          >{{'Нужно ввести данные' | transloco}}</mat-error
         >
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Время выполнения</mat-label>
+        <mat-label>{{'Время выполнения' | transloco}}</mat-label>
         <input
           matInput
           type="time"
@@ -104,13 +104,13 @@
           placeholder="Выбрать время"
         />
         <mat-error *ngIf="timeCompletion.errors?.required"
-          >Нужно ввести данные</mat-error
+          >{{'Нужно ввести данные' | transloco}}</mat-error
         >
       </mat-form-field>
     </mat-dialog-content>
 
     <mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close>Отмена</button>
+      <button mat-button mat-dialog-close>{{'Отмена' | transloco}}</button>
       <button
         mat-button
         type="submit"
@@ -118,7 +118,7 @@
         [mat-dialog-close]="form"
         cdkFocusInitial
       >
-        Добавить
+        {{'Добавить' | transloco}}
       </button>
     </mat-dialog-actions>
   </form>

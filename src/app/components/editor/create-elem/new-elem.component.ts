@@ -10,6 +10,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class NewElemComponent {
   constructor(protected taskService: TaskService) {}
 
+  currentdate = new Date();
+
   form = new FormGroup({
     title: new FormControl('', Validators.required),
     description: new FormControl('', [
@@ -20,8 +22,12 @@ export class NewElemComponent {
     ]),
     dateCompletion: new FormControl('', Validators.required),
     timeCompletion: new FormControl('', Validators.required),
-    dateCreation: new FormControl(new Date(), Validators.required),
-    timeCreation: new FormControl(new Date().getHours().toString()+':'+new Date().getMinutes().toString(), Validators.required),
+    dateCreation: new FormControl(this.currentdate, Validators.required),
+    timeCreation: new FormControl(
+      (this.currentdate.getHours().toString().length > 1 ? '' : '0')+
+            this.currentdate.getHours().toString() +
+            (this.currentdate.getMinutes().toString().length > 1 ? ':' : ':0') +
+            this.currentdate.getMinutes().toString(), Validators.required),
   });
 
   get title() {
@@ -47,12 +53,7 @@ export class NewElemComponent {
   get timeCreation() {
     return this.form.controls.timeCreation as FormControl;
   }
-
-  myDateFilter = (d: Date | null): boolean => {
-    const day = (d || new Date()).getDay();
-    return day !== 0 && day !== 6;
-  };
-
+  
   submit() {
     let deadlineDateTime: Date = new Date(
       new Date(this.dateCompletion.value).setHours(
@@ -68,9 +69,6 @@ export class NewElemComponent {
       )
     );
 
-    /*if (deadlineDateTime < this.taskService.currentData) {
-      deadlineDateTime = new Date(this.taskService.currentData.setDate(this.taskService.currentData.getDate()+1));
-    }*/
     this.taskService.create({
       id: Math.random(),
       title: this.title.value,

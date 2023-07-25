@@ -25,6 +25,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { NewElemComponent } from "./components/editor/create-elem/new-elem.component";
 import { RouteErrorComponent } from './components/route-error/route-error.component';
 import { MatCardModule } from "@angular/material/card";
+import { HttpClientModule } from '@angular/common/http';
+import { TranslocoRootModule } from './transloco-root.module';
+import {MatRadioModule} from "@angular/material/radio";
 
 
 @NgModule({
@@ -38,6 +41,7 @@ import { MatCardModule } from "@angular/material/card";
     RouteErrorComponent,
   ],
   imports: [
+    MatRadioModule,
     MatCardModule,
     BrowserModule,
     MatMenuModule,
@@ -56,7 +60,9 @@ import { MatCardModule } from "@angular/material/card";
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule,
+    TranslocoRootModule
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent],
