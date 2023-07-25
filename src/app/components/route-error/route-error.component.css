@@ -8,12 +8,12 @@
   padding-top: 50px;
 }
 
-.error-message {
+.error-route__message {
   text-align: center;
   color: red;
 }
 
-.error-code {
+.error-route__code {
   height: 80px;
   text-align: center;
   font-size: 100px;
