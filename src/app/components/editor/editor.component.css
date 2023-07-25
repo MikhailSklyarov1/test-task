@@ -1,4 +1,4 @@
-.editor {
+  .editor {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -6,14 +6,14 @@
     text-align: center;
   }
 
-  
+
   .item-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
   }
-  
+
   .title {
     margin-right: 10px;
   }
@@ -21,42 +21,42 @@
   .change-button{
     margin-left: 5px;
   }
-  
+
   .new-task-btn {
-    
+
     margin-bottom:15px;
   }
-  
+
   mat-selection-list {
     margin-top: 50px;
   }
-  
+
   mat-list-option:nth-child(n){
     height: 60px;
   }
-  
-  
+
+
   .title {
     text-align: left  ;
     font-size: 17px;
   }
-  
+
   .list-control {
     align-self: flex-end;
   }
-  
+
   .list-control button{
     margin: 5px;
   }
-  
-  
-  
+
+
+
   @media screen and (max-width: 1024px) {
     .editor {
       width: 100%;
     }
   }
-  
+
 
   ul {
     list-style: none;

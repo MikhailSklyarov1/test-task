@@ -1,0 +1,21 @@
+.error-route {
+  max-width: 300px;
+}
+
+.item-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.error-message {
+  text-align: center;
+  color: red;
+}
+
+.error-code {
+  height: 80px;
+  text-align: center;
+  font-size: 100px;
+  margin-top: 20px;
+}

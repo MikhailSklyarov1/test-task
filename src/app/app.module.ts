@@ -19,10 +19,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
+import { MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
-import {NewElemComponent} from "./components/editor/create-elem/new-elem.component";
+import { NewElemComponent } from "./components/editor/create-elem/new-elem.component";
+import { RouteErrorComponent } from './components/route-error/route-error.component';
+import { MatCardModule } from "@angular/material/card";
 
 
 @NgModule({
@@ -33,8 +35,10 @@ import {NewElemComponent} from "./components/editor/create-elem/new-elem.compone
     NavigationComponent,
     DetailDialog,
     NewElemComponent,
+    RouteErrorComponent,
   ],
   imports: [
+    MatCardModule,
     BrowserModule,
     MatMenuModule,
     AppRoutingModule,
